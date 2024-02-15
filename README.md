@@ -24,22 +24,4 @@ State Management: Redux Toolkit
 
 Routing: React Router
 
-Installation
 
-Provide instructions on how to install and set up the project locally.
-
-Usage
-
-Explain how to use the project, including any specific instructions or requirements.
-
-Contributing
-
-Encourage contributions from the community and provide guidelines for contributing to the project.
-
-License
-
-Specify the license under which the project is distributed.
-
-Acknowledgements
-
-Acknowledge any individuals or organizations that contributed to the project or provided support.
