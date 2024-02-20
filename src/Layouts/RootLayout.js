@@ -1,7 +1,8 @@
 import React from "react"
-import { Outlet, NavLink } from "react-router-dom"
+import { Outlet, NavLink, Form, useRouteLoaderData } from "react-router-dom"
 
 function RootLayout() {
+  const user = useRouteLoaderData("parentRoute")
   return (
     <main>
       <nav>
@@ -12,19 +13,34 @@ function RootLayout() {
           <li>
             <NavLink to="about">About</NavLink>
           </li>
-          <li>
-            <NavLink to="profile">Profile</NavLink>
-          </li>
-          <li>
-            <NavLink to="login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="signup">Signup</NavLink>
-          </li>
-          <li>
-            <NavLink to="my-courses">My Courses</NavLink>
-          </li>
+          {user && (
+            <li>
+              <NavLink to="profile">Profile</NavLink>
+            </li>
+          )}
+
+          {!user && (
+            <li>
+              <NavLink to="login">Login</NavLink>
+            </li>
+          )}
+
+          {!user && (
+            <li>
+              <NavLink to="signup">Signup</NavLink>
+            </li>
+          )}
+          {user && (
+            <li>
+              <NavLink to="my-courses">My Courses</NavLink>
+            </li>
+          )}
         </ul>
+        {user && (
+          <Form action="/Logout" method="post">
+            <button>Logout</button>
+          </Form>
+        )}
       </nav>
       <Outlet />
     </main>
